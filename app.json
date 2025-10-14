@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.justin.thanksben.weavrdemo"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +20,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.justin.thanksben.weavrdemo"
     },
     "web": {
       "output": "static",
@@ -38,7 +40,32 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      [
+        "@weavr-io/secure-components-react-native",
+        {
+           "permissions": {
+              "photosPermission": "Allow $(PRODUCT_NAME) to access photos in your library to perform KYC",
+              "cameraPermission": "Allow $(PRODUCT_NAME) to open the camera to perform KYC",
+              "microphonePermission": "Allow $(PRODUCT_NAME) to use the microphone to perform KYC",
+              "locationWhenInUseUsage": "Allow $(PRODUCT_NAME) to get access to your location while in use to perform KYC",
+              "faceIdUsage": "Allow $(PRODUCT_NAME) to get access to Face ID to login with biometrics"
+           }
+        } 
+     ],
+     [
+        "expo-build-properties",
+        {
+           "android": {
+              "compileSdkVersion": 35,
+              "targetSdkVersion": 35,
+              "buildToolsVersion": "35.0.0",
+           },
+           "ios": {
+              "deploymentTarget": "15.1",
+           },
+        },
+     ],
     ],
     "experiments": {
       "typedRoutes": true,
