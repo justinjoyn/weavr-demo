@@ -7,8 +7,6 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 console.log("Initializing Weavr UX Components");
-console.log('WEAVR_ENV:', process.env.EXPO_PUBLIC_WEAVR_ENV);
-console.log('WEAVR_UI_KEY:', process.env.EXPO_PUBLIC_WEAVR_UI_KEY);
 initializeUXComponents(process.env.EXPO_PUBLIC_WEAVR_ENV, process.env.EXPO_PUBLIC_WEAVR_UI_KEY)
   .then()
   .catch((error) => {
