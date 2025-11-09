@@ -1,4 +1,6 @@
 import {
+    SecurePasscodeTextField,
+    SecurePasscodeTextFieldMethods,
     SecureSegmentedPasscodeTextField,
     SecureSegmentedPasscodeTextFieldMethods
 } from '@weavr-io/secure-components-react-native';
@@ -8,7 +10,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export default function Index() {
-    const passcodeRef = useRef<SecureSegmentedPasscodeTextFieldMethods>(null);
+    const segmentedPasscodeRef = useRef<SecureSegmentedPasscodeTextFieldMethods>(null);
+    const passcodeRef = useRef<SecurePasscodeTextFieldMethods>(null);
 
     const handleTextChange = ({ event }: { event: string; }) => {
         console.log('handleTextChange: ', event);
@@ -29,7 +32,7 @@ export default function Index() {
                 style={styles.input}
                 onTextChanges={handleTextChange}
                 onTextEntryComplete={handleOnTextEntryComplete}
-                ref={passcodeRef}
+                ref={segmentedPasscodeRef}
                 segmentSpacing={16}
                 segmentHeight={64}
                 enableBorder
@@ -38,6 +41,19 @@ export default function Index() {
                 minimumWidth={100}
                 activeFieldBorderColor="red"
                 backgroundViewColor="green"
+            />
+
+            <SecurePasscodeTextField
+                placeholder="•"
+                style={styles.input}
+                onTextChanges={handleTextChange}
+                onTextEntryComplete={handleOnTextEntryComplete}
+                ref={passcodeRef}
+                placeholderTextColor="red"
+                enableBorder={false}
+                background={true}
+                activeFieldBorderColor='blue'
+                inactiveFieldBorderColor='yellow'                
             />
         </SafeAreaView>
     );
@@ -52,6 +68,8 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 64,
+        minWidth: 64,
         width: '100%',
+        borderColor: 'red',
     },
 });
